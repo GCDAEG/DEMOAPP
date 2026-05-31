@@ -35,7 +35,7 @@ export const CartDrawer = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice } = useCart();
 
   // Configuración específica para Gromet Concordia
-  const WHATSAPP_NUMBER = "5493454284625"; // Número de ejemplo de Concordia
+  const WHATSAPP_NUMBER = "5493446648013"; // Número de ejemplo de Concordia
   const DELIVERY_FEE = 1200;
 
   const finalTotal =
@@ -61,13 +61,13 @@ export const CartDrawer = () => {
       )
       .join("\n");
 
-    const header = `🛍️ *NUEVO PEDIDO - GROMET TAKE AWAY*`;
+    const header = `*NUEVO PEDIDO - GROMET TAKE AWAY*`;
     const deliveryInfo =
       deliveryType === "delivery"
-        ? `🛵 *ENTREGA A DOMICILIO*\n📍 *DIRECCIÓN:* ${address}`
-        : `🏪 *RETIRO EN LOCAL (Mitre y San Juan)*`;
+        ? `*ENTREGA A DOMICILIO*\n *DIRECCIÓN:* ${address}`
+        : `*RETIRO EN LOCAL (Mitre y San Juan)*`;
 
-    const notesInfo = notes ? `\n\n📝 *NOTAS:* ${notes}` : "";
+    const notesInfo = notes ? `\n\n *NOTAS:* ${notes}` : "";
 
     return `${header}\n\n${deliveryInfo}${notesInfo}\n\n*DETALLE DEL PEDIDO:*\n${productList}\n\n*SUBTOTAL:* $${totalPrice.toLocaleString("es-AR")}\n${deliveryType === "delivery" ? `*ENVÍO:* $${DELIVERY_FEE.toLocaleString("es-AR")}\n` : ""}*TOTAL FINAL: $${finalTotal.toLocaleString("es-AR")}*\n\n_(Enviado desde la Web de Gromet)_`;
   };
